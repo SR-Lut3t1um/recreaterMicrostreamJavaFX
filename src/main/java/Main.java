@@ -9,12 +9,13 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		StorageManager storageManager = EmbeddedStorage.start();
-		TableView<Test> asd = new TableView<>();
-		asd.getItems().add(new Test());
-		Scene scene = new Scene(asd);
+		TableView<Test> tableView = new TableView<>();
+		var test = new Test();
+		tableView.getItems().add(test);
+		Scene scene = new Scene(tableView);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		storageManager.setRoot(asd);
+		storageManager.setRoot(test);
 		storageManager.storeRoot();
 	}
 }
